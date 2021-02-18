@@ -48,7 +48,6 @@ storiesOf("Button", module)
     <DayListItem name="Tuesday" setDay={action("setDay")} spots={5} /> // action() allows us to create a callback that appears in the actions panel when clicked
   ));
 
-
   //-------------DayList Story--------------------------------/
 
   const days = [
@@ -80,8 +79,7 @@ storiesOf("Button", module)
         <DayList days={days} day={"Tuesday"} setDay={action("setDay")} />
       ));
 
-    
-    //-------------InterviewerListItem Story--------------------------------/
+  //-------------InterviewerListItem Story--------------------------------/
 
     const interviewer = {
       id: 1,
@@ -116,7 +114,6 @@ storiesOf("Button", module)
           setInterviewer={event => action("setInterviewer")(interviewer.id)}
         />
       ));
-
 
 //-------------InterviewerList Story--------------------------------/
       const interviewers = [
