@@ -62,7 +62,7 @@ export default function Appointment (props) {
             <article className="appointment" data-testid="appointment">
                 {mode === CONFIRM && (
                     <Confirm
-                        message = {"Delete the appointment?"}
+                        message = {"Are you sure you would like to delete?"}
                         onConfirm = {del}
                         onCancel = {back}
                     />
@@ -88,6 +88,7 @@ export default function Appointment (props) {
                 {mode === EDIT && (
                     <Form 
                         name = {props.interview.student}
+                        interviewer = {props.interview.interviewer}
                         interviewers = {props.interviewers}
                         onCancel = {() => back()}
                         onSave = {save}
@@ -95,7 +96,7 @@ export default function Appointment (props) {
                 )}
                 {mode === ERROR_SAVE && (
                     <Error 
-                        message = {"Could not save appointment."}
+                        message = {"Could not book appointment."}
                         onClose = {back}
                     />
                 )}
