@@ -52,9 +52,11 @@ const fixtures = {
       }
     }
   };
+  
   export default {
     defaults: { baseURL: "" },
-    get: jest.fn(url => {
+
+    get: (url) => {
       if (url === "/api/days") {
         return Promise.resolve({
           status: 200,
@@ -62,7 +64,7 @@ const fixtures = {
           data: fixtures.days
         });
       }
-  
+
       if (url === "/api/appointments") {
         /* Resolve appointments data */
         return Promise.resolve({
@@ -80,23 +82,91 @@ const fixtures = {
           data: fixtures.interviewers
         });
       }
-    }),
+    },
+    
+    
+    
+    // jest.fn(function(url) {
+    //   console.log('XXXXXXX', url)
+    //   const p = new Promise()
+    //   // Promise.resolve({
+    //   //         status: 200,
+    //   //         statusText: "OK",
+    //   //         data: fixtures.days
+    //   //       });
+
+    //   setTimeout(() => {
+    //     p.resolve({
+    //               status: 200,
+    //               statusText: "OK",
+    //               data: fixtures.days
+    //             })
+    //   }, 0)
+
+    //     return p;
+    // }),
   
-    put: jest.fn(url => {
+
+    // get: jest.fn(url => {
+    //   console.log("helo-----------------------------");
+    //   if (url === "/api/days") {
+    //     return Promise.resolve({
+    //       status: 200,
+    //       statusText: "OK",
+    //       data: fixtures.days
+    //     });
+    //   }
+  
+    //   if (url === "/api/appointments") {
+    //     /* Resolve appointments data */
+    //     return Promise.resolve({
+    //       status: 200,
+    //       statusText: "OK",
+    //       data: fixtures.appointments
+    //     });
+    //   }
+  
+    //   if (url === "/api/interviewers") {
+    //     /* Resolve interviewers data */
+    //     return Promise.resolve({
+    //       status: 200,
+    //       statusText: "OK",
+    //       data: fixtures.interviewers
+    //     });
+    //   }
+    // }),
+    
+    //put: jest.fn((url) => {})
+  
+    put: (url) => {
       return Promise.resolve({
         status: 204,
         statusText: "No Content",
         data: fixtures.appointments
       })
-    }),
+    },
+
+    //delete: jest.fn((url) => {})
   
-    delete: jest.fn(url => {
+    delete: (url) => {
       return Promise.resolve({
         status: 204,
         statusText: "No Content",
         data: fixtures.appointments
       })
-  
-    })
+    }
+
+    // put: jest.fn(url => {
+    //   return Promise.resolve({
+    //     status: 204,
+    //     statusText: "No Content"
+    //   })
+    // }),
+    // delete: jest.fn(url => {
+    //   return Promise.resolve({
+    //     status: 204,
+    //     statusText: "No Content"
+    //   })
+    // })
   } 
   
