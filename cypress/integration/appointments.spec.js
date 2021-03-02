@@ -29,23 +29,10 @@ describe("Editing Tests", () => {
 
 describe('Canceling Tests', () => {
   it('should delete an appointment', () => {
-
     cy.visit("/");
     cy.contains("Monday").click({ force: true });
     cy.get('.appointment__card').trigger('mouseover', { force: true })
     cy.get(".appointment__actions-button:nth-of-type(2)").click({ force: true }); // click Delete button
-    //cy.get('.appointment__actions > :nth-child(2)').click({ force: true });
-
-    // cy.get('[data-testid=student-name-input]').focus({ force: true }).clear()
-    // cy.get('[data-testid=student-name-input]').type("Archie Levi");
-    // cy.get(':nth-child(2) > .interviewers__item-image').click({ force: true });
-    // cy.get('.button--confirm').click({ force: true });
-
-    // cy.get("[alt = Delete]").first().click({ force: true });
     cy.contains("Confirm").click();
-  // cy.contains("Deleting").should("exist");
-  // cy.contains("Deleting").should("not.exist");
-    // cy.contains(".appointment__card--show", "Archie Cohen")
-    //   .should("not.exist");
   })
 });

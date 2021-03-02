@@ -54,6 +54,7 @@ const fixtures = {
   };
   
   export default {
+    
     defaults: { baseURL: "" },
 
     get: (url) => {
@@ -84,58 +85,6 @@ const fixtures = {
       }
     },
     
-    
-    
-    // jest.fn(function(url) {
-    //   console.log('XXXXXXX', url)
-    //   const p = new Promise()
-    //   // Promise.resolve({
-    //   //         status: 200,
-    //   //         statusText: "OK",
-    //   //         data: fixtures.days
-    //   //       });
-
-    //   setTimeout(() => {
-    //     p.resolve({
-    //               status: 200,
-    //               statusText: "OK",
-    //               data: fixtures.days
-    //             })
-    //   }, 0)
-
-    //     return p;
-    // }),
-  
-
-    // get: jest.fn(url => {
-    //   console.log("helo-----------------------------");
-    //   if (url === "/api/days") {
-    //     return Promise.resolve({
-    //       status: 200,
-    //       statusText: "OK",
-    //       data: fixtures.days
-    //     });
-    //   }
-  
-    //   if (url === "/api/appointments") {
-    //     /* Resolve appointments data */
-    //     return Promise.resolve({
-    //       status: 200,
-    //       statusText: "OK",
-    //       data: fixtures.appointments
-    //     });
-    //   }
-  
-    //   if (url === "/api/interviewers") {
-    //     /* Resolve interviewers data */
-    //     return Promise.resolve({
-    //       status: 200,
-    //       statusText: "OK",
-    //       data: fixtures.interviewers
-    //     });
-    //   }
-    // }),
-    
     //put: jest.fn((url) => {})
   
     put: (url) => {
@@ -146,27 +95,14 @@ const fixtures = {
       })
     },
 
-    //delete: jest.fn((url) => {})
-  
-    delete: (url) => {
-      return Promise.resolve({
+    delete: jest.fn((url) => {
+       return new Promise((resolve, reject) => {
+        resolve({
         status: 204,
         statusText: "No Content",
         data: fixtures.appointments
       })
-    }
-
-    // put: jest.fn(url => {
-    //   return Promise.resolve({
-    //     status: 204,
-    //     statusText: "No Content"
-    //   })
-    // }),
-    // delete: jest.fn(url => {
-    //   return Promise.resolve({
-    //     status: 204,
-    //     statusText: "No Content"
-    //   })
-    // })
-  } 
-  
+       })
+    })
+  }
+   

@@ -82,22 +82,22 @@ export default function useApplicationData() {
 
 
   const cancelInterview = (id) => {
-
+         
     const appointment = {
       ...state.appointments[id],
       interview: null
-    }
+    };
 
     const appointments = {
-      ...state.appointments,
+      ...state.appointments, 
       [id]: appointment
-    }
-
+    };
+   
     return axios.delete(`/api/appointments/${id}`, appointment)
-      .then(() => {
-        setState({ ...state, appointments, days: spotsRemaing(state, appointments) });
-      })
-  }
+    .then(() =>  {
+      setState({...state, appointments, days: spotsRemaing(state, appointments)});
+    })
+  };
 
   return { state, bookInterview, cancelInterview, setDay }
 } 

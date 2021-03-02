@@ -17,6 +17,5 @@ export default function useVisualMode(initial) {
         }
     };
     
-    ///console.log(initial, mode)
     return {mode, transition, back};
 };

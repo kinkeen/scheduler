@@ -40,7 +40,6 @@ npm run cypress
 + -"@babel/runtime": "^7.13.7",
 + -"axios": "^0.21.1",
 + -"classnames": "^2.2.6",
-+ -"lodash": "^4.17.21",
 + -"normalize.css": "^8.0.1",
 + -"react": "^16.9.0",
 + -"react-dom": "^16.9.0",
@@ -48,6 +47,7 @@ npm run cypress
 
 ## Dev Dependencies
 
++ -"devDependencies": 
 + -"@babel/core": "^7.4.3",
 + -"@storybook/addon-actions": "^6.1.20",
 + -"@storybook/addon-backgrounds": "^6.1.20",
@@ -60,7 +60,10 @@ npm run cypress
 + -"@types/lodash": "^4.14.168",
 + -"cypress": "^6.5.0",
 + -"node-sass": "^4.14.0",
-+ -"prop-types": "^15.7.2"
++ -"prop-types": "^15.7.2",
++ -"react-hooks-testing-library": "^0.6.0",
++ -"react-test-renderer": "^16.9.0",
++ -"react-testing-library": "^8.0.1"
 
 ## Screnshots
 

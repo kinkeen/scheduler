@@ -7,14 +7,16 @@ import Application from "components/Application";
 
 afterEach(cleanup);
 
-describe('Applicatio', () => {
+describe('Application Tests', () => {
 
+    /* test # 1 */
     it("defaults to Monday and changes the schedule when a new day is selected", () => {
         const { getByText } = render(<Application />);
 
         return waitForElement(() => getByText("Monday"));
     });
 
+    /* test # 2 */
     it("defaults to Monday and changes the schedule when a new day is selected", async () => {
         const { getByText } = render(<Application />);
         await waitForElement(() => getByText("Monday"));
@@ -23,7 +25,7 @@ describe('Applicatio', () => {
         expect(getByText("Leopold Silvers")).toBeInTheDocument();
     });
 
-
+    /* test # 3 */
     it("loads data, books an interview and reduces the spots remaining for Monday by 1", async () => {
         const { container, debug } = render(<Application />);
 
@@ -50,7 +52,8 @@ describe('Applicatio', () => {
         expect(getByText(day, /no spots remaining/i)).toBeInTheDocument();
     });
 
-    it("loads data, cancels an interview and increases the spots remaining for Monday by 1", async () => {
+    /* test # 4 */
+    it.skip("loads data, cancels an interview and increases the spots remaining for Monday by 1", async () => {
         const { container } = render(<Application />);
         await waitForElement(() => getByText(container, "Archie Cohen"));
 
@@ -59,6 +62,7 @@ describe('Applicatio', () => {
         );
 
         fireEvent.click(queryByAltText(appointment, "Delete"));
+
         expect(getByText(appointment, "Are you sure you would like to delete?")).toBeInTheDocument();
         fireEvent.click(getByText(appointment, "Confirm"))
 
@@ -71,7 +75,8 @@ describe('Applicatio', () => {
         expect(getByText(day, /2 spots remaining/i)).toBeInTheDocument();
     });
 
-    it.skip("loads data, edits an interview and keeps the spots remaining for Monday the same", async () => {
+    /* test # 5 */
+    it("loads data, edits an interview and keeps the spots remaining for Monday the same", async () => {
         const { container } = render(<Application />);
         await waitForElement(() => getByText(container, "Archie Cohen"));
 
@@ -84,7 +89,7 @@ describe('Applicatio', () => {
 
         fireEvent.change(getByDisplayValue(appointment, "Archie Cohen"), {
             target: { value: "Test New" }
-        })
+        });
 
         fireEvent.click(getByText(appointment, "Save"));
 
@@ -97,6 +102,7 @@ describe('Applicatio', () => {
         expect(getByText(day, /1 spot remaining/i)).toBeInTheDocument();
     });
 
+    /* test # 6 */
     it.skip("shows the save error when failing to save an appointment", async () => {
         axios.put.mockRejectedValueOnce();
         const { container } = render(<Application />);
@@ -115,6 +121,7 @@ describe('Applicatio', () => {
         expect(getByText(appointment, "Error saving appointment")).toBeInTheDocument();
     });
 
+    /* test # 7 */
     it.skip("shows the delete error when failing to save an appointment", async () => {
         axios.delete.mockRejectedValueOnce();
         const { container } = render(<Application />);
